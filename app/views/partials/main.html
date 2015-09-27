@@ -1,0 +1,47 @@
+<h2 ng-show="!currentUser">Welcome. Please log in.</h2>
+<h2 ng-show="currentUser">Hello {{currentUser.username}}</h2>
+<div ng-show="currentUser">
+	<table class="table table-bordered row table-hover">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Description</th>
+				<th>From</th>
+				<th>To</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="travelData in flightData" ng-mouseenter="flightRowHover(travelData)" ng-mouseleave="flightRowHover(travelData)">
+				<td>{{travelData.date}}</td>
+				<td>{{travelData.description}}</td>
+				<td>{{travelData.from}}</td>
+				<td>{{travelData.to}}</td>
+				<td ng-show="travelData.showDelete" ng-click="deleteFlight(travelData)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+	<form class="form-inline row" ng-submit="addFlight(form)" name="formm">
+  		<div class="form-group">
+    		<label for="exampleInputName2">Date</label>
+    		<input  ng-model="newFlight.date" type="text" class="form-control" id="exampleInputName2" placeholder="01/20/2015">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputEmail2">Description</label>
+    		<input  ng-model="newFlight.desc" type="text" class="form-control" id="exampleInputEmail2" placeholder="Scott's Bachelor Party">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputEmail2">From</label>
+    		<input  ng-model="fnewFlight.from" type="text" class="form-control" id="exampleInputEmail2" placeholder="BWI">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputEmail2">To</label>
+    		<input  ng-model="newFlight.to" type="text" class="form-control" id="exampleInputEmail2" placeholder="LAS">
+  		</div>
+  		<button type="submit" class="btn btn-default">Add Flight</button>
+	</form>
+
+</div>
+

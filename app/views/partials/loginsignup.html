@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row">
+        <span ng-switch on="showLoginPartial">
+          <div ng-switch-when="true"> <div ng-include="'partials/login.html'"></div></div>
+          <div ng-switch-when="false"> <div ng-include="'partials/signup.html'"></div></div>
+        </span>
+    </div>
+</div>
